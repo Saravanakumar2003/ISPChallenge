@@ -72,7 +72,7 @@ function App() {
           image: "https://via.placeholder.com/150",
           url: "https://isp5.com"
         },
-        
+
 
 
       ]
@@ -83,13 +83,30 @@ function App() {
     setIsLoading(false);
 
     // Uncomment the following lines when you have the real API endpoint
-    // axios.get('https://your-api-url.com/providers')
-    //   .then(response => {
-    //     console.log("API Response:", response.data);
-    //     setProviders(response.data.providers || []);
-    //     setFilteredProviders(response.data.providers || []);
-    //   })
-    //   .catch(error => console.error("Error fetching data:", error));
+    /* 
+    useEffect(() => {
+  axios.get('https://hackerearth.0x10.info/api/uptime')
+    .then(response => {
+      console.log("API Status:", response.data); // Debug log
+      if (response.data.status === 'ok') {
+        // Fetch ISP data only if the API status is ok
+        return axios.get('https://hackerearth.0x10.info/api/isp?type=json&query=list_isp');
+      } else {
+        throw new Error("API is not available");
+      }
+    })
+    .then(response => {
+      console.log("ISP Data:", response.data); // Debug log
+      if (response.data.providers) {
+        setProviders(response.data.providers);
+        setFilteredProviders(response.data.providers);
+      } else {
+        console.error("API response does not contain 'providers'");
+      }
+    })
+    .catch(error => console.error("Error:", error)); // Debug log
+}, []);
+    */
   }, []);
 
   if (isLoading) {
@@ -97,7 +114,7 @@ function App() {
   }
 
   const handleSearch = (query) => {
-    const filtered = providers.filter(provider => 
+    const filtered = providers.filter(provider =>
       provider.name.toLowerCase().includes(query.toLowerCase()) ||
       provider.lowest_price.toString().includes(query) ||
       provider.rating.toString().includes(query)
