@@ -1,0 +1,13 @@
+Step-by-Step Development Plan
+
+1. Setup the Project
+    
+    Initialize a React App: Use create-react-app to initialize your project.
+
+2. Install Dependencies
+
+    Install the following dependencies:
+    - axios for making API requests.
+    - react-router-dom for routing.
+    - materialize-css for styling.
+    - html-to-image and jspdf for downloading ISP details as images and PDFs. 
