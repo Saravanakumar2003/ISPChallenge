@@ -10,4 +10,44 @@ Step-by-Step Development Plan
     - axios for making API requests.
     - react-router-dom for routing.
     - materialize-css for styling.
-    - html-to-image and jspdf for downloading ISP details as images and PDFs. 
+    - html-to-image and n for downloading ISP details as images and PDFs. 
+
+3. Project Structure
+
+    presidio_challenge/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── Header.js
+│   │   ├── ISPList.js
+│   │   ├── ISPDetail.js
+│   │   ├── SearchBar.js
+│   │   ├── SortBar.js
+│   │   └── DownloadButton.js
+│   ├── App.js
+│   ├── index.js
+│   ├── styles.css
+├── package.json
+
+4. Components Breakdown
+
+Header.js -- Displays the application name and a summary of total ISPs and API hits.
+ISPList.js -- Lists all ISPs fetched from the API. Each item is clickable and shows the details in the ISPDetail component.
+ISPDetail.js -- Displays detailed information about the selected ISP. Contains options to share and download ISP details.
+SearchBar.js -- Allows users to search ISPs by name, price, or rating.
+SortBar.js -- Provides sorting functionality by price or rating.
+DownloadButton.js -- Handles the download functionality to save ISP details as PDF or JPG.
+
+5. Fetching Data from API
+
+Use axios to fetch data from the API.
+Store the data in the state and pass it to the ISPList component for rendering.
+
+6. UI Design with Materialize CSS
+
+Apply Materialize CSS classes to style the application.
+Ensure the design is responsive.
+
+7. Routing
+
+Use react-router-dom to handle routing between the list view and the detail view.
